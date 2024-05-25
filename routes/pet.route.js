@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const app = express();
 
-const { getPets, getSinglePet, createPet, updatePet, deletePet } = require('../controlles/pet.controller')
+const { getPets, getPetsByType, getSinglePet, createPet, updatePet, deletePet } = require('../controlles/pet.controller')
 
 const router = express.Router();
 
@@ -21,6 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', getPets);
+router.get('/:slug',getPetsByType);
 router.get('/:slug', getSinglePet);
 router.post('/',upload.single('image'), createPet);
 router.put('/:id', updatePet);
