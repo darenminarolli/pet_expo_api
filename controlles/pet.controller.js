@@ -34,9 +34,9 @@ const getSinglePet = async (req, res) => {
 const createPet = async (req, res) => {
   const pet = req.body;
   try {
-    if (!req.file) {
-      return res.status(400).json({ message: "Please upload an image" });
-    }
+    // if (!req.file) {
+    //   return res.status(400).json({ message: "Please upload an image" });
+    // }
     pet.image_path = req.file.path;
     const newPet = await Pet.create(pet);
     res.status(201).json(newPet);
