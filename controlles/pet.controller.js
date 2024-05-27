@@ -24,6 +24,7 @@ const getSinglePet = async (req, res) => {
   console.log(slug);
   try {
     const pet = await Pet.find({ type_of_pet: slug, name: name });
+    console.log('Single Pet: ',pet)
     res.status(200).json(pet);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -58,7 +59,10 @@ const updatePet = async (req, res) => {
 const deletePet = async (req, res) => {
   const { id } = req.params;
   try {
+
     const deletePet = await Pet.findByIdAndDelete(id);
+    console.log(deletePet);
+    res.status(200).json(deletePet);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

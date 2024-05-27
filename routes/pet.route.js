@@ -21,8 +21,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', getPets);
-router.get('/:slug',getPetsByType);
-router.get('/:slug', getSinglePet);
+router.get('/type/:slug',getPetsByType);
+router.get('/single/:slug', getSinglePet);
 router.post('/',upload.single('image'), createPet);
 router.put('/:id', updatePet);
 router.delete('/:id', deletePet);
