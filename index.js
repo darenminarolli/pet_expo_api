@@ -13,7 +13,9 @@ const PORT = process.env.PORT || LOCAL_PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
+app.use(cors({
+  origin: 'https://pet-expo-front.vercel.app/', // Adjust this to your frontend's domain
+}));
 app.use('/api/pets', routes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const uri = process.env.DB_CONNECTION_URI;
