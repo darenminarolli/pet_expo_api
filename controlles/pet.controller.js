@@ -6,7 +6,7 @@ const getPets = async (req, res) => {
     const pets = await Pet.find({});
     res.status(200).json(pets);
   } catch (error) {
-    res.stats(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 const getPetsByType = async (req, res) => {
@@ -26,7 +26,7 @@ const getSinglePet = async (req, res) => {
     const pet = await Pet.find({ type_of_pet: slug, name: name });
     res.status(200).json(pet);
   } catch (error) {
-    res.stats(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -40,7 +40,7 @@ const createPet = async (req, res) => {
     const newPet = await Pet.create(pet);
     res.status(201).json(newPet);
   } catch (error) {
-    res.stats(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
