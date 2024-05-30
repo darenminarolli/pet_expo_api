@@ -24,6 +24,6 @@ router.get('/', getPets);
 router.get('/type/:slug',getPetsByType);
 router.get('/single/:slug', getSinglePet);
 router.post('/',upload.single('image'), createPet);
-router.put('/:id', updatePet);
+router.put('/:id',upload.single('image'), updatePet);
 router.delete('/:id', deletePet);
 module.exports = router
