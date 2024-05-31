@@ -7,8 +7,7 @@ require('dotenv').config();
 const routes = require('./routes/pet.route.js');
 
 const app = express();
-const LOCAL_PORT = 9002;
-const PORT =  LOCAL_PORT;
+const PORT =  9002;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
