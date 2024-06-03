@@ -48,7 +48,7 @@ const createPet = async (req, res) => {
     pet.image_path = req.file.path;
     console.log(pet.image_path);
     const newPet = await Pet.create(pet);
-    res.status(201).json(newPet);
+    res.status(200).json(newPet);
     console.log(newPet);
   } catch (error) {
     res.status(500).json({ message: error.message });
